@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{%block content %}
+
+
+<form action="/next" method="post">
+      <div class = "container">
+        {{ q_text|safe }}
+        <input type="submit" value="Next">
+    </div>
+</form>
+{%endblock%}
