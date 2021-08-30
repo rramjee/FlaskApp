@@ -2,10 +2,35 @@
 {%block content %}
 
 
-<form action="/next" method="post">
-      <div class = "container">
-        {{ q_text|safe }}
-        <input type="submit" value="Next">
-    </div>
-</form>
+
+
+<div class="container">
+  <h1>User Information</h1>
+ 
+  <br/><br/>
+  
+      <h4>
+          {{ question }} 
+      <br/>
+      {% if question_type == "List" %}
+      
+      {% for val in listval.split(",") %}
+      <input type="checkbox"><label > {{val}}:</label> <br/>
+      {% endfor%}
+      {% else %}
+      <input type="text"/>
+      {% endif %}
+      </h4>
+  
+
+  
+
+  {% if "submit" == button_name %}
+    <a href="{{url_for('thanks')}}" 
+        class="btn btn-outline-secondary btn-sm">{{ button_name }}</a>
+  {% else %}
+    <a href="{{url_for('setup')}}" 
+    class="btn btn-outline-secondary btn-sm">{{ button_name }}</a>
+  {% endif %}
+</div>
 {%endblock%}
